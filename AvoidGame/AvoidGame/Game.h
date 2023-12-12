@@ -6,7 +6,12 @@
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 
+#include <vector>
+
+
 using namespace sf;
+using namespace std;
+
 
 class Game
 {
@@ -15,6 +20,10 @@ private:
 	Event Event;
 
 	CircleShape Player;
+	vector<RectangleShape> EnemyArray;
+
+	int EnemyMax;
+
 
 public:
 
@@ -31,5 +40,12 @@ public:
 	void Render();
 
 	void InitPlayer();
+	void UpdatePlayer();
+
+	void InitEnemy();
+	void InitSpawn();
+	void SpawnEnemy();
+	void UpdateEnemy();
+
 };
 

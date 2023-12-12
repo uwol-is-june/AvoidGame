@@ -5,6 +5,8 @@ Game::Game() {
 	this->InitWindow();
 
 	this->InitPlayer();
+	this->InitEnemy();
+	this->InitSpawn();
 }
 
 Game::~Game() {
@@ -49,7 +51,44 @@ void Game::Render() {
 }
 
 void Game::InitPlayer() {
-	this->Player.setRadius(100.0f);
-	this->Player.setFillColor(Color(255, 0, 0, 255));
-	this->Player.setPosition(100,100);
+	this->Player.setRadius(30.0f);
+	this->Player.setFillColor(Color(217, 207, 98, 255));
+	this->Player.setPosition(
+		float(this->Window->getSize().x/2 - 30.0f), 
+		float(this->Window->getSize().y/2 - 30.0f));
+}
+
+void Game::UpdatePlayer() {
+	if (Keyboard::isKeyPressed(Keyboard::Left)) {
+
+	}
+}
+
+void Game::InitEnemy() {
+	this->Enemy.setSize(Vector2f(60.0f, 60.0f));
+	this->Enemy.setFillColor
+	this->Enemy.
+}
+
+void Game::InitSpawn() {
+
+}
+
+void Game::SpawnEnemy() {
+
+}
+
+void Game::UpdateEnemy() {
+	this->SpawnEnemy();
+	if (this->EnemyArray.size() < this->EnemyMax) {
+		this->SpawnEnemy();
+		this->IntervalStart = 0.0f;
+	}
+	else {
+		this->IntervalStart += 1.0f;
+	}
+
+		for (int i = 0; i < this->EnemyArray.size()l i++) {
+			this->EnemyArray[i].move(0.0f, 1.0f);
+	}
 }
